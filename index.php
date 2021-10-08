@@ -54,14 +54,48 @@ Olimpia Milano - Cantù | 55-60 -->
     }
 ?>
 
-
-
 <!-- ## Snack 2
 Passare come parametri GET name, mail e age e verificare
-(cercando i metodi che non conosciamo nella documentazione) che name
-sia più lungo di 3 caratteri,
-che mail contenga un punto e una chiocciola e che age sia un numero.
+(cercando i metodi che non conosciamo nella documentazione) 
+che name sia più lungo di 3 caratteri,
+che mail contenga un punto e una chiocciola e che 
+age sia un numero.
 Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato” -->
+<?php 
+    $name = $_GET["name"];
+    $mail = $_GET["mail"];
+    $age = $_GET["age"];
+    $flagName = false;
+    $flagMail = false;
+    $flagAge = false;
+
+
+    if (empty($name && $mail && $age)) {
+        echo "inserisci nome , mail, età";
+    }
+    else {
+        if (strlen($name) >= 3) {
+            $flagName = true;
+        }
+        if (strpos($mail,"@") !==false && strpos($mail,".") !==false) {
+            $flagMail = true;
+        }
+        if (is_numeric($age)) {
+            $flagAge = true;
+        }
+    }
+    if ($flagName == false && $flagMail == false && $flagAge == false) {
+        echo "Accesso negato";
+    } else {
+        echo "Accesso riuscito";
+    }
+
+?>
+
+    <h2><?php echo "$name";?></h2>
+    <h2><?php echo "$mail";?></h2>
+    <h2><?php echo "$age";?></h2>
+
 
 
 
