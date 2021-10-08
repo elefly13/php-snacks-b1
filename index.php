@@ -84,7 +84,7 @@ Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato” 
             $flagAge = true;
         }
     }
-    if ($flagName == false && $flagMail == false && $flagAge == false) {
+    if ($flagName == false || $flagMail == false || $flagAge == false) {
         echo "Accesso negato";
     } else {
         echo "Accesso riuscito";
