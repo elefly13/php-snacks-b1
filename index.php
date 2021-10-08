@@ -14,11 +14,45 @@ Ogni array avrà una squadra di casa e una squadra ospite,
 punti fatti dalla squadra di casa e punti fatti dalla squadra ospite.
 Stampiamo a schermo tutte le partite con questo schema.
 Olimpia Milano - Cantù | 55-60 -->
+<?php 
+    $partite = [
+        [
+            "squadraCasa" => " Virtus Roma",
+            "squadraOspite" => " Aquila Trento",
+            "puntiCasa" => 58,
+            "puntiOspite" => 70,
+        ], 
+        [
+            "squadraCasa" => " Reyer Venezia",
+            "squadraOspite" => " Fortitudo Bologna",
+            "puntiCasa" => 74,
+            "puntiOspite" => 90,
+        ],    
+        [
+            "squadraCasa" => "  Pistoia Basket",
+            "squadraOspite" => " Basket Napoli",
+            "puntiCasa" => 82,
+            "puntiOspite" => 68,
+        ],    
+        [
+            "squadraCasa" => " Fortitudo Bologna",
+            "squadraOspite" => " Scafati Basket",
+            "puntiCasa" => 75,
+            "puntiOspite" => 88,
+        ],    
+        [
+            "squadraCasa" => " Mens Sana Siena",
+            "squadraOspite" => " Junior Casale",
+            "puntiCasa" => 56,
+            "puntiOspite" => 60,
+        ],       
+    ];
 
 
-
-
-
+    for ($i = 0; $i < count($partite); $i++) {
+        echo "<h3>" .$partite[$i]["squadraCasa"] ." - " .$partite[$i]["squadraOspite"] ." | " .$partite[$i]["puntiCasa"] ."-" .$partite[$i]["puntiOspite"] ."</h3>";
+    }
+?>
 
 
 
@@ -28,6 +62,9 @@ Passare come parametri GET name, mail e age e verificare
 sia più lungo di 3 caratteri,
 che mail contenga un punto e una chiocciola e che age sia un numero.
 Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato” -->
+
+
+
     
 </body>
 </html>
