@@ -70,14 +70,14 @@ Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato” 
     $flagAge = false;
 
 
-    if (empty($name && $mail && $age)) {
-        echo "inserisci nome , mail, età";
+    if (empty($name || $mail || $age)) {
+        echo "inserisci nome, mail, età";
     }
     else {
         if (strlen($name) >= 3) {
             $flagName = true;
         }
-        if (strpos($mail,"@") !==false && strpos($mail,".") !==false) {
+        if (strpos($mail,"@") !==false || strpos($mail,".") !==false) {
             $flagMail = true;
         }
         if (is_numeric($age)) {
@@ -99,6 +99,110 @@ Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato” 
 
 
 
-    
+<!-- SNACK 3
+    Creare un array di array. Ogni array figlio avrà come chiave una data in questo formato: DD-MM-YYYY es 01-01-2007 e come valore
+    un array di post associati a quella data. Stampare ogni data con i relativi post. -->
+<?php 
+
+    $posts = [
+
+        '10/01/2019' => [
+            [
+                'title' => 'Post 1',
+                'author' => 'Michele Papagni',
+                'text' => 'Testo post 1'
+            ],
+            [
+                'title' => 'Post 2',
+                'author' => 'Michele Papagni',
+                'text' => 'Testo post 2'
+            ],
+        ],
+        '10/02/2019' => [
+            [
+                'title' => 'Post 3',
+                'author' => 'Michele Papagni',
+                'text' => 'Testo post 3'
+            ]
+        ],
+        '15/05/2019' => [
+            [
+                'title' => 'Post 4',
+                'author' => 'Michele Papagni',
+                'text' => 'Testo post 4'
+            ],
+            [
+                'title' => 'Post 5',
+                'author' => 'Michele Papagni',
+                'text' => 'Testo post 5'
+            ],
+            [
+                'title' => 'Post 6',
+                'author' => 'Michele Papagni',
+                'text' => 'Testo post 6'
+            ]
+        ],
+    ];
+
+
+?>
+<ul>
+    <?php
+        foreach ($posts as $key => $value) {
+            echo
+            '<li>'
+                . $key
+                .'<ul>'
+                    . '<li>';
+                    foreach($value as $post) {
+                        echo 'Titolo: ' .$post["title"] . '<br/>';
+                        echo 'Autore: ' .$post["author"] . '<br/>';
+                        echo 'Testo: ' .$post["text"] . '<br/>';
+                    }
+                    echo '</li>'
+                . '</ul>'
+            .'</li>'; 
+        };
+    ?>
+</ul>
+
+
+
+<!-- SNACK 4
+    Creare un array con 15 numeri casuali ( da 1 a 100), 
+    tenendo conto che l’array non dovrà contenere lo stesso numero più di una volta -->
+
+<?php
+    $myArray = [];
+
+    while (count($myArray) < 15) {
+        $newNum = rand(1, 100);
+        if (!in_array($newNum, $myArray)) {
+            $myArray[]= $newNum;
+
+        }
+        
+    }
+    var_dump($myArray);
+?>
+
+
+<!-- SNACK 5
+    Prendere un paragrafo abbastanza lungo, contenente diverse frasi. Prendere il paragrafo e suddividerlo in tanti paragrafi.
+    Ogni punto un nuovo paragrafo. -->
+<?php 
+    $bigParagrafo = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora reprehenderit totam minima tempore assumenda delectus, hic, id cumque vel rem blanditiis dolore eaque, quis numquam fugiat suscipit ab iste. Eum!
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora reprehenderit totam minima tempore assumenda delectus, hic, id cumque vel rem blanditiis dolore eaque, quis numquam fugiat suscipit ab iste. Eum!";
+
+?>
+
+<?php 
+    var_dump($paragrafi = explode(".", $bigParagrafo));
+    foreach ($paragrafi as $paragrafo) {
+        echo '<p>' . $paragrafo .'.' .'</p>';
+    }
+?> 
+ 
+ 
 </body>
 </html>

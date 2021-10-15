@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.gray {
+    width: 500px;
+    height: 100px;
+    background-color: rgb(192, 189, 189);
+    margin: 0 auto;
+    color: black;
+}
+.green {
+    width: 500px;
+    height: 100px;
+    background-color: rgb(174, 241, 186);
+    margin: 0 auto;
+}
+h2 {
+    text-align: center;
+}
